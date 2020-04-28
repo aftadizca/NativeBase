@@ -17,7 +17,8 @@ const {
   StyleSheet,
   ScrollView,
   Platform,
-  Dimensions
+  Dimensions,
+  TouchableWithoutFeedback
 } = ReactNative;
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
@@ -171,7 +172,7 @@ const ScrollableTabBar = createReactClass({
 
     if (typeof name === 'string') {
       return (
-        <Button
+        <TouchableWithoutFeedback
           key={`${name}_${page}`}
           onPress={() => onPressHandler(page)}
           onLayout={onLayoutHandler}
@@ -190,7 +191,7 @@ const ScrollableTabBar = createReactClass({
               {name}
             </Text>
           </TabHeading>
-        </Button>
+        </TouchableWithoutFeedback>
       );
     }
     return (
@@ -204,7 +205,7 @@ const ScrollableTabBar = createReactClass({
         </TabHeading>
       </Button>
     );
-    
+
   },
 
   measureTab(page, event) {
